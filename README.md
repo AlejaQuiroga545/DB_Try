@@ -211,3 +211,125 @@ node server/index.js
 Para ver los cambios en el servidor, es necesario detenerlo (Ctrl + C) y volver a ejecutar el comando.
 
 Se recomienda usar herramientas como Postman para probar los diferentes endpoints y verificar que el backend funciona correctamente. Puedes crear una colección para organizar todas las peticiones.
+
+
+La normalización de bases de datos es un proceso para organizar los datos y evitar problemas como duplicación innecesaria o dificultad para actualizar la información. Se hace por “formas normales” (1FN, 2FN, 3FN, etc.).
+
+Te explico las tres primeras con ejemplos fáciles:
+
+
+---
+
+**1. Primera Forma Normal (1FN)**
+
+Regla principal:
+
+Cada columna debe tener valores atómicos (no listas ni datos repetidos en una misma celda).
+
+No debe haber filas duplicadas.
+
+
+Ejemplo NO normalizado:
+
+ID	Nombre	Teléfonos
+
+1	Ana	123-456, 789-012
+2	Pedro	555-555
+
+
+Problema:
+En la columna “Teléfonos” hay más de un número en la misma celda.
+
+Ejemplo en 1FN:
+
+ID	Nombre	Teléfono
+
+1	Ana	123-456
+1	Ana	789-012
+2	Pedro	555-555
+
+
+
+---
+
+**2. Segunda Forma Normal (2FN)**
+
+Regla principal:
+
+Cumplir 1FN.
+
+Todos los atributos deben depender de toda la clave primaria, no solo de una parte (aplica si la clave primaria es compuesta).
+
+
+Ejemplo NO normalizado (clave primaria: Curso + EstudianteID):
+
+Curso	EstudianteID	NombreEstudiante	Profesor
+
+Matemáticas	1	Ana	Luis
+Matemáticas	2	Pedro	Luis
+
+
+Problema:
+“Profesor” depende solo del curso, no del estudiante+curso. Esto genera repetición.
+
+Ejemplo en 2FN: Tabla Cursos
+
+Curso	Profesor
+
+Matemáticas	Luis
+
+
+Tabla Inscripciones
+
+Curso	EstudianteID	NombreEstudiante
+
+Matemáticas	1	Ana
+Matemáticas	2	Pedro
+
+
+
+---
+
+**3. Tercera Forma Normal (3FN)**
+
+Regla principal:
+
+Cumplir 2FN.
+
+No debe haber dependencia transitiva: un atributo no clave no debe depender de otro atributo no clave.
+
+
+Ejemplo NO normalizado:
+
+EstudianteID	Nombre	Ciudad	CódigoPostal
+
+1	Ana	Bogotá	110111
+2	Pedro	Cali	760001
+
+
+Problema:
+CódigoPostal depende de la Ciudad, no directamente del EstudianteID.
+
+Ejemplo en 3FN: Tabla Estudiantes
+
+EstudianteID	Nombre	Ciudad
+
+1	Ana	Bogotá
+2	Pedro	Cali
+
+
+Tabla Ciudades
+
+Ciudad	CódigoPostal
+
+Bogotá	110111
+Cali	760001
+
+
+
+---
+
+Si quieres, puedo hacerte un diagrama visual chiquito para que las 3 reglas se vean más claras y conectadas. Así es más fácil recordarlas.
+¿Quieres que te lo prepare?
+
+
