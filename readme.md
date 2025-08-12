@@ -1,51 +1,53 @@
-# 📚 Sistema de Gestión de Biblioteca
+# Library Management System
 
-Este es un sistema monolítico para la gestión de una biblioteca, que permite administrar usuarios, libros y préstamos. El backend está construido con **Node.js** y **Express**, la base de datos se gestiona con **MySQL**, y el frontend se encuentra dentro de la carpeta `app`.
-
----
-
-## 🚀 Tecnologías utilizadas
-
-- Node.js
-- Express.js
-- MySQL
-- HTML, CSS, JavaScript (Frontend)
-- csv-parser (para cargar datos desde archivos CSV)
-- vite
+This is a monolithic system for managing a library, allowing you to handle users, books, and loans. The backend is built with Node.js and Express, the database is managed with MySQL, and the frontend is located within the app folder.
 
 ---
 
-## 📁 Estructura del proyecto
+## Technologies used
+
+Node.js
+Express.js
+MySQL
+HTML, CSS, JavaScript (Frontend)
+csv-parser (to load data from CSV files)
+vite
+
+---
+
+## Project Structure
+
 ```bash
 biblioteca/
 │
 ├── docs/ # Documentation
-│       ...
+│       ...
 ├── app/ # Frontend (HTML, CSS, JS)
-│       ...
+│       ...
 ├── server/ # Backend
-│       ...
-├── index.html 
-├── .env # Variables de entorno
+│       ...
+├── index.html 
+├── .env # Environment variables
 ├── .gitignore
 └── README.md
 ```
 
-## 📦 Instalación
+## Installation
 
-1. Clona el repositorio:
+
+1. Clone the repository:
 
 ```bash
 git clone https://github.com/jcomte23/biblioteca-easy.git
 cd biblioteca
 ```
-2. Instala dependencias:
+2. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Crea y configura el archivo .env:
+3. Create and configure the .env file:
 
 ```bash
 DB_HOST=localhost
@@ -55,15 +57,15 @@ DB_NAME=db_name
 DB_PORT=3306
 ```
 
-4. Inicializa el backend:
+4. Initialize the backend::
 ```bash
 node server/index.js
 ```
 
-5. Inicializa el frontend:
+5. Initialize the frontend:
 ```bash
 npm run dev
 ```
 
-# 📬 Licencia
-Este proyecto está bajo licencia MIT. Puedes usarlo, modificarlo y distribuirlo libremente.
+# License
+This project is under the MIT license. You are free to use, modify, and distribute it.
